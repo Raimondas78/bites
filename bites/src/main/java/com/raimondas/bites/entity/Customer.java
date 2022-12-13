@@ -24,6 +24,7 @@ public class Customer {
     @Column
     private String companyCode;
 
+    @Column(unique = true)
     private String personalCode;
 
     @NotBlank

@@ -25,9 +25,9 @@ public class CustomerController {
 
 
     @GetMapping("/customer")
-    private ResponseEntity<List<CustomerPageResponse> >getAllCustomers() {
+    private List<CustomerPageResponse> getAllCustomers() {
 
-        return ResponseEntity.ok().body(customerService.getAllCustomers());
+        return customerService.getAllCustomers();
     }
 
     @GetMapping("/customer/{id}")

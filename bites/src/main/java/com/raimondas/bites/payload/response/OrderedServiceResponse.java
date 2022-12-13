@@ -18,7 +18,8 @@ public class OrderedServiceResponse {
 
     private LocalDate activeTo;
 
-    public OrderedServiceResponse(long id, String name, String type, LocalDate activeFrom, LocalDate activeTo, String description) {
+    public OrderedServiceResponse(long id, String name, String type, LocalDate activeFrom, LocalDate activeTo,
+                                  String description) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -35,7 +36,7 @@ public class OrderedServiceResponse {
                 orderedService.getActiveFrom(),
                 orderedService.getActiveTo(),
                 orderedService.getDescription()
-                );
+        );
     }
 
     public long getId() {

@@ -2,9 +2,9 @@ package com.raimondas.bites.entity;
 
 public enum Type {
 
-    INTERNET("Int"),
-    MOBILE("Mob"),
-    TELEVISION("TV");
+    INTERNET("Internetas"),
+    MOBILE("Mobilusis_Rysys"),
+    TELEVISION("Televizija");
 
     private final String label;
 

@@ -8,7 +8,6 @@ import com.raimondas.bites.payload.response.CustomerPageResponse;
 import com.raimondas.bites.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class CustomerService {
     @Transactional
     public void updateCustomer(CustomerUpdateRequest customerUpdateRequest) {
         Optional<Customer> optionalCustomer = customerRepository.findById(customerUpdateRequest.getId());
-        if(optionalCustomer.isPresent()) {
+        if (optionalCustomer.isPresent()) {
             customerRepository.updateCustomer(
                     customerUpdateRequest.getName(),
                     customerUpdateRequest.getSurname(),
@@ -69,7 +68,7 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
-    public Optional<Customer> findById (long id) {
+    public Optional<Customer> findById(long id) {
         return customerRepository.findById(id);
     }
 }

@@ -3,8 +3,6 @@ package com.raimondas.bites.payload.request;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDate;
-
 public class OrderedServiceUpdateRequest extends OrderedServiceRequest {
 
     private long id;

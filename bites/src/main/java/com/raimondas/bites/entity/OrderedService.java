@@ -3,8 +3,8 @@ package com.raimondas.bites.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -73,4 +73,29 @@ public class OrderedService {
         return customer;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrderedService)) return false;
+        OrderedService that = (OrderedService) o;
+        return id == that.id && name.equals(that.name) && type == that.type && description.equals(that.description) && activeFrom.equals(that.activeFrom) && activeTo.equals(that.activeTo) && customer.equals(that.customer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, type, description, activeFrom, activeTo, customer);
+    }
+
+    @Override
+    public String toString() {
+        return "OrderedService{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                ", description='" + description + '\'' +
+                ", activeFrom=" + activeFrom +
+                ", activeTo=" + activeTo +
+                ", customer=" + customer +
+                '}';
+    }
 }
