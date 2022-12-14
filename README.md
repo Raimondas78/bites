@@ -11,7 +11,7 @@ Duomenų bazės sąsaja pasiekiama per http://localhost:8080/h2-console/login.js
 Programos pakete pridedamas postman REST kreipinių rinkinys.
 
 Įgyvendinti REST kreipiniai:
-
+<>
 Customer klasei:
 Gauti visus klientus
 GET: localhost:8080/api/customer
