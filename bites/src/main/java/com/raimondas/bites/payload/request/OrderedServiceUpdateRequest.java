@@ -5,15 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OrderedServiceUpdateRequest extends OrderedServiceRequest {
 
-    private long id;
+    private final long id;
+
 
     @JsonCreator
-    public OrderedServiceUpdateRequest(@JsonProperty("name") String name,
+    public OrderedServiceUpdateRequest(@JsonProperty("id") long id,
+                                       @JsonProperty("name") String name,
                                        @JsonProperty("type") String type,
                                        @JsonProperty("activeFrom") String activeFrom,
                                        @JsonProperty("activeTo") String activeTo,
-                                       @JsonProperty("description") String description,
-                                       final long id) {
+                                       @JsonProperty("description") String description) {
         super(name, type, activeFrom, activeTo, description);
         this.id = id;
     }

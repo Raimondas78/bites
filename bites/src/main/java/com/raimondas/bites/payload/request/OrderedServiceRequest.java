@@ -6,6 +6,7 @@ import com.raimondas.bites.entity.OrderedService;
 import com.raimondas.bites.entity.Type;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class OrderedServiceRequest {
@@ -16,10 +17,10 @@ public class OrderedServiceRequest {
     @NotBlank(message = "Ordered service type must be present")
     private final String type;
 
-    @NotBlank(message = "Date service is active from must be present")
+    @NotNull(message = "Date service is active from must be present")
     private final LocalDate activeFrom;
 
-    @NotBlank(message = "Date service is active till must be present")
+    @NotNull(message = "Date service is active till must be present")
     private final LocalDate activeTo;
 
     private final String description;

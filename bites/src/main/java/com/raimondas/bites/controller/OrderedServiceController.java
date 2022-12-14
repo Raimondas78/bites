@@ -12,13 +12,16 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
 public class OrderedServiceController {
 
+    @Autowired
     OrderedServiceService service;
 
+    @Autowired
     CustomerService customerService;
 
     @Autowired
@@ -30,6 +33,14 @@ public class OrderedServiceController {
     @GetMapping("/service")
     public List<OrderedServicePageResponse> getAllServices() {
         return service.getAllOrderedServices();
+    }
+
+    @GetMapping("/service/customer/{id}")
+    public List<OrderedServicePageResponse> getServicesOfCustomer(@PathVariable("id") long id) {
+        List<OrderedService> services = service.findByCustomerId(id);
+
+        return services.stream().
+                map(OrderedServicePageResponse::fromOrderedService).collect(Collectors.toList());
     }
 
     @GetMapping("/service/{id}")

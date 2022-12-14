@@ -16,6 +16,7 @@ import java.util.List;
 public class CustomerController {
 
 
+    @Autowired
     private final CustomerService customerService;
 
     @Autowired
@@ -26,7 +27,6 @@ public class CustomerController {
 
     @GetMapping("/customer")
     private List<CustomerPageResponse> getAllCustomers() {
-
         return customerService.getAllCustomers();
     }
 

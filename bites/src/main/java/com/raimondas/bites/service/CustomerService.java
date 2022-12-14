@@ -21,6 +21,7 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
+
     public List<CustomerPageResponse> getAllCustomers() {
         List<Customer> customers = new ArrayList<>();
         customerRepository.findAll().forEach(customers::add);

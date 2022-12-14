@@ -8,12 +8,14 @@ public class CustomerUpdateRequest extends CustomerRequest {
     private long id;
 
     @JsonCreator
-    public CustomerUpdateRequest(@JsonProperty("id") long id, @JsonProperty("name") String name, @JsonProperty("surname") String surname,
+    public CustomerUpdateRequest(@JsonProperty("id") long id,
+                                 @JsonProperty("name") String name,
+                                 @JsonProperty("surname") String surname,
                                  @JsonProperty("personalCode") String personalCode,
                                  @JsonProperty("address") String address,
                                  @JsonProperty("companyName") String companyName,
                                  @JsonProperty("companyCode") String companyCode) {
-        super(name, surname, personalCode, address, companyName, companyCode);
+        super(name, surname, personalCode, companyName, companyCode, address);
         this.id = id;
     }
 

@@ -3,8 +3,9 @@ package com.raimondas.bites.entity;
 public enum Type {
 
     INTERNET("Internetas"),
-    MOBILE("Mobilusis_Rysys"),
-    TELEVISION("Televizija");
+    MOBILE("Mobilusis_rysys"),
+    TELEVISION("Televizija"),
+    SMARTSERVICE("Ismaniosios_paslaugos");
 
     private final String label;
 

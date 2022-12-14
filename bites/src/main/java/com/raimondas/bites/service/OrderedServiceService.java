@@ -1,6 +1,7 @@
 package com.raimondas.bites.service;
 
 import com.raimondas.bites.entity.OrderedService;
+import com.raimondas.bites.entity.Type;
 import com.raimondas.bites.payload.request.OrderedServiceUpdateRequest;
 import com.raimondas.bites.payload.response.OrderedServicePageResponse;
 import com.raimondas.bites.repository.OrderedServiceRepository;
@@ -39,6 +40,10 @@ public class OrderedServiceService {
         return orderedServicePageResponse;
     }
 
+    public List<OrderedService> findByCustomerId(long id) {
+        return orderedServiceRepository.findByCustomerId(id);
+    }
+
     @Transactional
     public void createService(OrderedService orderedService) {
         orderedServiceRepository.save(orderedService);
@@ -46,14 +51,17 @@ public class OrderedServiceService {
 
     @Transactional
     public void updateService(OrderedServiceUpdateRequest orderedServiceUpdateRequest) {
-        orderedServiceRepository.updateOrderedService(
-                orderedServiceUpdateRequest.getName(),
-                orderedServiceUpdateRequest.getType(),
-                orderedServiceUpdateRequest.getActiveFrom(),
-                orderedServiceUpdateRequest.getActiveTo(),
-                orderedServiceUpdateRequest.getDescription(),
-                orderedServiceUpdateRequest.getId()
-        );
+        Optional<OrderedService> orderedServiceOptional = orderedServiceRepository.findById(orderedServiceUpdateRequest.getId());
+        if(orderedServiceOptional.isPresent()) {
+            orderedServiceRepository.updateOrderedService(
+                    orderedServiceUpdateRequest.getName(),
+                    Type.valueOf(orderedServiceUpdateRequest.getType()),
+                    orderedServiceUpdateRequest.getActiveFrom(),
+                    orderedServiceUpdateRequest.getActiveTo(),
+                    orderedServiceUpdateRequest.getDescription(),
+                    orderedServiceUpdateRequest.getId()
+            );
+        }
     }
 
 

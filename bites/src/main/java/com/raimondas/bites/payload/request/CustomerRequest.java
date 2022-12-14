@@ -14,6 +14,7 @@ public class CustomerRequest {
     @NotBlank(message = "Customer's surname cannot be blank")
     private final String surname;
 
+    @NotBlank
     private final String personalCode;
 
     private final String companyCode;
@@ -26,15 +27,15 @@ public class CustomerRequest {
     @JsonCreator
     public CustomerRequest(@JsonProperty("name") String name, @JsonProperty("surname") String surname,
                            @JsonProperty("personalCode") String personalCode,
-                           @JsonProperty("address") String address,
                            @JsonProperty("companyName") String companyName,
-                           @JsonProperty("companyCode") String companyCode) {
+                           @JsonProperty("companyCode") String companyCode,
+                           @JsonProperty("address") String address) {
         this.name = name;
         this.surname = surname;
         this.personalCode = personalCode;
-        this.address = address;
         this.companyCode = companyCode;
         this.companyName = companyName;
+        this.address = address;
     }
 
     public String getName() {

@@ -1,5 +1,7 @@
 package com.raimondas.bites.entity;
 
+import com.raimondas.bites.entity.constraint.NumberConstraint;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -25,12 +27,13 @@ public class Customer {
     private String companyCode;
 
     @Column(unique = true)
+    @NumberConstraint
     private String personalCode;
 
     @NotBlank
     private String address;
 
-    @OneToMany(mappedBy = "customer", orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderedService> orderedServices;
 
     public Customer() {
@@ -100,7 +103,6 @@ public class Customer {
                 ", companyCode='" + companyCode + '\'' +
                 ", personalCode='" + personalCode + '\'' +
                 ", address='" + address + '\'' +
-                ", orderedServices=" + orderedServices +
                 '}';
     }
 }

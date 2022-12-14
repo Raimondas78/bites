@@ -13,8 +13,7 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
             "c.address = :address, c.companyName = :companyName, " +
             "c.companyCode = :companyCode WHERE c.id = :id")
     void updateCustomer(String name, String surname, String personalCode, String address, String companyName,
-                        String companyCode,
-                         long id);
+                        String companyCode, long id);
 
 
 }

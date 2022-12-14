@@ -95,7 +95,6 @@ public class OrderedService {
                 ", description='" + description + '\'' +
                 ", activeFrom=" + activeFrom +
                 ", activeTo=" + activeTo +
-                ", customer=" + customer +
                 '}';
     }
 }
