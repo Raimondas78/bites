@@ -8,7 +8,7 @@ Reikėtų atsisųsti ir importuoti projektą, arba įkelti repozitorijos nuorod�
 
 Programos įėjimo taškas yra BitesApplication klasė.
 Duomenys iš duomenų bazės yra ištrinami kiekvieną kartą sustabdžius programą.
-Duomenų bazės sąsaja pasiekiama per http://localhost:8080/h2-console/login.jsp paleidus programą.
+Duomenų bazės sąsaja pasiekiama per http://localhost:8080/h2-console/login.jsp paleidus programą, bei jungiantis patikrinti ar JDBC URL yra toks, kaip šis jdbc:h2:mem:bite
 Programos pakete pridedamas postman REST kreipinių rinkinys.
 
 Įgyvendinti REST kreipiniai:
