@@ -51,7 +51,11 @@ Gauti visas užsakytas paslaugas
 Gauti konkretaus kliento užsakytas paslaugas
 
                                         GET: localhost:8080/api/orderedService/customer/{id}
-
+                                        
+ Gauti užsakytas paslaugas pagal konkretų paslaugos id
+ 
+                                        GET: localhost:8080/api/orderedService/service/{id}
+                                        
 Sukurti naują užsakytą paslaugą klientui
 
                                         POST: localhost:8080/api/orderedService
