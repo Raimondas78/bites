@@ -42,24 +42,24 @@ Ištrinti konkretų klientą
 
 Gauti konkrečią užsakytą paslaugą
 
-                                        GET: localhost:8080/api/service/{id}
+                                        GET: localhost:8080/api/orderedService/{id}
 
-Gauti visą užsakytų paslaugų rinkinį
+Gauti visas užsakytas paslaugas
 
-                                        GET: localhost:8080/api/service
+                                        GET: localhost:8080/api/OrderedService
 
 Gauti konkretaus kliento užsakytas paslaugas
 
-                                        GET: localhost:8080/api/service/customer/{id}
+                                        GET: localhost:8080/api/orderedService/customer/{id}
 
-Sukurti naują paslauą klientui
+Sukurti naują užsakytą paslaugą klientui
 
-                                        POST: localhost:8080/api/service
+                                        POST: localhost:8080/api/orderedService
 
-Atnaujinti esamos paslaugos duomenis
+Atnaujinti esamos užsakytos paslaugos duomenis
 
-                                        PUT: localhost:8080/api/service
+                                        PUT: localhost:8080/api/orderedService
 
 Ištrinti konkrečią paslaugą
 
-                                        DEL: localhost:8080/api/service/{id}
+                                        DEL: localhost:8080/api/orderedService/{id}
