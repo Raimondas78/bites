@@ -8,33 +8,34 @@ import java.time.LocalDate;
 public class OrderedServicePageResponse extends OrderedServiceResponse {
 
     private final long customer;
+    private final long service;
 
     public OrderedServicePageResponse(@JsonProperty("id") long id,
-                                      @JsonProperty("name") String name,
-                                      @JsonProperty("type") String type,
                                       @JsonProperty("activeFrom") LocalDate activeFrom,
                                       @JsonProperty("activeTo") LocalDate activeTo,
-                                      @JsonProperty("description") String description,
-                                      long customer) {
-        super(id, name, type, activeFrom, activeTo, description);
+                                      long customer, long service) {
+        super(id, activeFrom, activeTo);
         this.customer = customer;
+        this.service = service;
     }
 
     public static OrderedServicePageResponse fromOrderedService(OrderedService orderedService) {
 
         OrderedServicePageResponse orderedServicePageResponse = new OrderedServicePageResponse(
                 orderedService.getId(),
-                orderedService.getName(),
-                orderedService.getType().getLabel(),
                 orderedService.getActiveFrom(),
                 orderedService.getActiveTo(),
-                orderedService.getDescription(),
-                orderedService.getCustomer().getId()
+                orderedService.getCustomer().getId(),
+                orderedService.getService().getId()
         );
         return orderedServicePageResponse;
     }
 
     public long getCustomer() {
         return customer;
+    }
+
+    public long getService() {
+        return service;
     }
 }

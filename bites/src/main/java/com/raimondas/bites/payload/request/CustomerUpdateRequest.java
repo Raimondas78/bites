@@ -2,6 +2,7 @@ package com.raimondas.bites.payload.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.raimondas.bites.entity.CustomerCode;
 
 public class CustomerUpdateRequest extends CustomerRequest {
 
@@ -11,11 +12,9 @@ public class CustomerUpdateRequest extends CustomerRequest {
     public CustomerUpdateRequest(@JsonProperty("id") long id,
                                  @JsonProperty("name") String name,
                                  @JsonProperty("surname") String surname,
-                                 @JsonProperty("personalCode") String personalCode,
                                  @JsonProperty("address") String address,
-                                 @JsonProperty("companyName") String companyName,
-                                 @JsonProperty("companyCode") String companyCode) {
-        super(name, surname, personalCode, companyName, companyCode, address);
+                                 @JsonProperty("customerCode") CustomerCode customerCode) {
+        super(name, surname, address, customerCode);
         this.id = id;
     }
 

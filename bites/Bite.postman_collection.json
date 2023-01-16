@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "7a07c560-9d35-411c-8388-b1318939e7b1",
+		"_postman_id": "7e836655-a000-40d8-b64c-e741a3b7e043",
 		"name": "Bite",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "12236210"
+		"_exporter_id": "25166904"
 	},
 	"item": [
 		{
@@ -32,6 +32,40 @@
 					"path": [
 						"api",
 						"customer"
+					]
+				},
+				"description": "Get all customers"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/orderedService/service/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/orderedService/service/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orderedService",
+						"service",
+						"1"
 					]
 				},
 				"description": "Get all customers"
@@ -78,7 +112,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n   {\r\n        \"name\": \"vardas\",\r\n        \"surname\": \"pavarde\",\r\n        \"personalCode\": \"11119111142\",\r\n        \"address\": \"asmeninis arba imones adresas\",\r\n        \"companyName\": \"kompanijos pavadinimas\",\r\n        \"companyCode\": \"kompanijos kodas\"\r\n    }",
+					"raw": "\r\n   {\r\n        \"name\": \"vardas\",\r\n        \"surname\": \"pavarde\",\r\n        \"address\": \"asmeninis arba imones adresas\",\r\n        \"customerCode\":{\r\n            \"personalCode\": \"11119111142\",\r\n            \"companyName\": \"kompanijos pavadinimas\",\r\n            \"companyCode\": \"kompanijos kodas\"\r\n        }\r\n        \r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -107,7 +141,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n   {\r\n        \"id\": 1,\r\n        \"name\": \"vard89\",\r\n        \"surname\": \"pavard33\",\r\n        \"companyName\": \"kompanijos pavadinimas\",\r\n        \"companyCode\": \"kompanijos kodas\",\r\n        \"personalCode\": \"11114111142\",\r\n        \"address\": \"adresas\"\r\n    }",
+					"raw": "\r\n   {\r\n    \"id\": 1,\r\n    \"name\": \"vardenis\",\r\n    \"surname\": \"pavardenis\",\r\n    \"address\": \"asmeninis arba imones adresas\",\r\n    \"customerCode\": {\r\n        \"id\":1,\r\n        \"personalCode\": \"11111111811\",\r\n        \"companyCode\": \"nulis\",\r\n        \"companyName\": null\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,13 +164,42 @@
 			"response": []
 		},
 		{
+			"name": "localhost:8080/api/orderedService",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n   {\r\n    \"id\": 1,\r\n    \"activeFrom\": \"2022-12-09\",\r\n    \"activeTo\": \"2025-12-31\",\r\n    \"customerId\": 1,\r\n    \"serviceId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/orderedService",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orderedService"
+					]
+				},
+				"description": "create new customer"
+			},
+			"response": []
+		},
+		{
 			"name": "localhost:8080/api/service",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n   {\r\n    \"id\": 1,\r\n    \"name\": \"pavadinimas8\",\r\n    \"type\": \"INTERNET\",\r\n    \"activeFrom\": \"2022-12-09\",\r\n    \"activeTo\": \"2024-12-31\",\r\n    \"description\": \"Namu Internetas\"\r\n}",
+					"raw": "\r\n   {\r\n    \"id\": 1,\r\n    \"name\": \"pavadinimas\",\r\n    \"type\": \"INTERNET\",\r\n    \"description\": \"Namu be dumu Internetas\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,7 +255,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/api/service/customer/{id}",
+			"name": "localhost:8080/api/orderedService/{id}",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -209,7 +272,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/service/customer/1",
+					"raw": "localhost:8080/api/service/1",
 					"host": [
 						"localhost"
 					],
@@ -217,6 +280,39 @@
 					"path": [
 						"api",
 						"service",
+						"1"
+					]
+				},
+				"description": "get services"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/orderedService/customer/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/orderedService/customer/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orderedService",
 						"customer",
 						"1"
 					]
@@ -287,6 +383,35 @@
 			"response": []
 		},
 		{
+			"name": "localhost:8080/api/orderedService",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n   {\r\n        \"name\": \"pavadinimas\",\r\n        \"type\": \"INTERNET\",\r\n        \"description\": \"Namu Internetas\",\r\n        \"activeFrom\": \"2022-12-09\",\r\n        \"activeTo\": \"2024-12-31\",\r\n\t\t\"customerId\":1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/service",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"service"
+					]
+				},
+				"description": "create new service for customer with id"
+			},
+			"response": []
+		},
+		{
 			"name": "localhost:8080/api/customer/{id}",
 			"request": {
 				"method": "DELETE",
@@ -309,6 +434,36 @@
 					"path": [
 						"api",
 						"customer",
+						"1"
+					]
+				},
+				"description": "Delete customer"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/orderedService/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Neu\",\r\n    \"author\": \"Bok\",\r\n    \"barcode\": \"r\",\r\n    \"quantity\": 1,\r\n    \"price\": 12.0,\r\n    \"lastMember\": 1808\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/orderedService/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orderedService",
 						"1"
 					]
 				},

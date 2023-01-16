@@ -8,22 +8,12 @@ public class OrderedServiceResponse {
 
     private long id;
 
-    private String name;
-
-    private String type;
-
-    private String description;
-
     private LocalDate activeFrom;
 
     private LocalDate activeTo;
 
-    public OrderedServiceResponse(long id, String name, String type, LocalDate activeFrom, LocalDate activeTo,
-                                  String description) {
+    public OrderedServiceResponse(long id, LocalDate activeFrom, LocalDate activeTo) {
         this.id = id;
-        this.name = name;
-        this.type = type;
-        this.description = description;
         this.activeFrom = activeFrom;
         this.activeTo = activeTo;
     }
@@ -31,28 +21,13 @@ public class OrderedServiceResponse {
     public static OrderedServiceResponse fromOrderedService(OrderedService orderedService) {
         return new OrderedServiceResponse(
                 orderedService.getId(),
-                orderedService.getName(),
-                orderedService.getType().getLabel(),
                 orderedService.getActiveFrom(),
-                orderedService.getActiveTo(),
-                orderedService.getDescription()
+                orderedService.getActiveTo()
         );
     }
 
     public long getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public LocalDate getActiveFrom() {

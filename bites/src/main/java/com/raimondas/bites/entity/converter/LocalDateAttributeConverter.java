@@ -1,4 +1,4 @@
-package com.raimondas.bites.entity;
+package com.raimondas.bites.entity.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

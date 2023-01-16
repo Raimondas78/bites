@@ -2,34 +2,41 @@ package com.raimondas.bites.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.raimondas.bites.entity.Customer;
+import com.raimondas.bites.entity.CustomerCode;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CustomerPageResponse extends CustomerResponse {
 
-    private final List<OrderedServiceResponse> orderedServices;
+    private final List<OrderedServicePageResponse> orderedServices;
 
-    public CustomerPageResponse(@JsonProperty long id, @JsonProperty String name, @JsonProperty String surname,
-                                @JsonProperty String companyName, @JsonProperty String companyCode,
-                                @JsonProperty String personalCode, @JsonProperty String address,
-                                @JsonProperty List<OrderedServiceResponse> orderedServices) {
-        super(id, name, surname, companyName, companyCode, personalCode, address);
+    public CustomerPageResponse(@JsonProperty long id,
+                                @JsonProperty String name,
+                                @JsonProperty String surname,
+                                @JsonProperty String address,
+                                @JsonProperty CustomerCode customerCode,
+                                @JsonProperty List<OrderedServicePageResponse> orderedServices) {
+                super(id, name, surname, address, customerCode);
+
         this.orderedServices = orderedServices;
     }
 
     public static CustomerPageResponse fromCustomer(Customer customer) {
-        List<OrderedServiceResponse> orderedServices = customer.getOrderedServices().stream().
-                map(OrderedServiceResponse::fromOrderedService).
+        List<OrderedServicePageResponse> orderedServices = customer.getOrderedServices().stream().
+                map(OrderedServicePageResponse::fromOrderedService).
                 collect(Collectors.toList());
         return new CustomerPageResponse(
-                customer.getId(), customer.getName(), customer.getSurname(), customer.getPersonalCode(), customer.getAddress(),
-                customer.getCompanyName(),
-                customer.getCompanyCode(), orderedServices
+                customer.getId(),
+                customer.getName(),
+                customer.getSurname(),
+                customer.getAddress(),
+                customer.getCustomerCode(),
+                orderedServices
         );
     }
 
-    public List<OrderedServiceResponse> getOrderedServices() {
+    public List<OrderedServicePageResponse> getOrderedServices() {
         return orderedServices;
     }
 }

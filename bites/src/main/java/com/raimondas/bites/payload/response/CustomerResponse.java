@@ -1,6 +1,7 @@
 package com.raimondas.bites.payload.response;
 
 import com.raimondas.bites.entity.Customer;
+import com.raimondas.bites.entity.CustomerCode;
 
 public class CustomerResponse {
 
@@ -10,27 +11,26 @@ public class CustomerResponse {
 
     private String surname;
 
-    private String companyName;
-
-    private String companyCode;
-
-    private String personalCode;
-
     private String address;
 
-    public CustomerResponse(long id, String name, String surname, String personalCode, String address, String companyName, String companyCode) {
+    private CustomerCode customerCode;
+
+
+    public CustomerResponse(long id,
+                            String name,
+                            String surname,
+                            String address,
+                            CustomerCode customerCode) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.companyName = companyName;
-        this.companyCode = companyCode;
-        this.personalCode = personalCode;
         this.address = address;
+        this.customerCode = customerCode;
     }
 
     public static CustomerResponse fromCustomer(Customer customer) {
-        return new CustomerResponse(customer.getId(), customer.getName(), customer.getSurname(), customer.getPersonalCode(),
-                customer.getAddress(), customer.getCompanyName(), customer.getCompanyCode());
+        return new CustomerResponse(customer.getId(), customer.getName(), customer.getSurname(),
+                customer.getAddress(), customer.getCustomerCode());
     }
 
     public long getId() {
@@ -45,19 +45,11 @@ public class CustomerResponse {
         return surname;
     }
 
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public String getCompanyCode() {
-        return companyCode;
-    }
-
-    public String getPersonalCode() {
-        return personalCode;
-    }
-
     public String getAddress() {
         return address;
+    }
+
+    public CustomerCode getCustomerCode() {
+        return customerCode;
     }
 }
