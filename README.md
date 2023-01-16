@@ -52,7 +52,7 @@ Gauti konkretaus kliento užsakytas paslaugas
 
                                         GET: localhost:8080/api/orderedService/customer/{id}
                                         
- Gauti užsakytas paslaugas pagal konkretų paslaugos id
+Gauti užsakytas paslaugas pagal konkretų paslaugos id
  
                                         GET: localhost:8080/api/orderedService/service/{id}
                                         
@@ -67,3 +67,27 @@ Atnaujinti esamos užsakytos paslaugos duomenis
 Ištrinti konkrečią paslaugą
 
                                         DEL: localhost:8080/api/orderedService/{id}
+                                        
+                                        
+
+### Service klasei:
+                                        
+Sukurti paslaugą
+
+                                        POST: localhost:8080/api/service     
+
+Gauti paslaugą pagal id
+
+                                        GET: localhost:8080/api/service/{id}
+
+Gauti visas paslaugas
+
+                                        GET: localhost:8080/api/service
+
+Atnaujinti konkrečią paslaugą
+
+                                        PUT: localhost:8080/api/service
+
+Ištrinti paslaugą
+
+                                        DELETE: localhost:8080/api/service/{id}
